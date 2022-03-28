@@ -6,13 +6,20 @@ BASE_URL = 'https://www.amazon.com.br'
 SEARCH_URL = '{url}/s?k='.format(url=BASE_URL)
 
 def crawler(term = 'iphone'):
-    response = get_request('{url}{term}'.format(url=SEARCH_URL, term=term), headers=headers_search())
     
-    soup = bs(response.text, 'html.parser')
-    product_itens = soup.select('div.s-result-item.s-asin.sg-col-4-of-16.sg-col')
     products = {
         'products':[]
     }
+
+    scrapping_page('{url}{term}'.format(url=SEARCH_URL, term=term), products)
+
+    return json.dumps(products)
+
+def scrapping_page(link, products):
+    response = get_request(link, headers=headers_search())
+    
+    soup = bs(response.text, 'html.parser')
+    product_itens = soup.select('div.s-result-item.s-asin.sg-col-4-of-16.sg-col')
 
     for item in product_itens:
         title = item.select('h2 span.a-size-base-plus.a-color-base.a-text-normal')[0].text
@@ -34,7 +41,12 @@ def crawler(term = 'iphone'):
 
         products['products'].append(product)
 
-    return json.dumps(products)
+    next_page = soup.findAll('a', class_='s-pagination-next')
+    
+    if len(next_page) > 0:
+        return scrapping_page('{url}{term}'.format(url=BASE_URL, term=next_page[0]['href']), products)
+    else:
+        return products
 
 
 def headers_search():
