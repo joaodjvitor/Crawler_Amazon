@@ -10,10 +10,6 @@ CORS(app)
 def search(term):
     return crawler(term)
 
-@app.route('/batata', methods=['GET'])
-def teste():
-    return 'hello world'
-
 if __name__ == '__main__':
     app.run(port=5000)
 
