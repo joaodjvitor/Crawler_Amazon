@@ -11,11 +11,12 @@ O projeto a seguir se trata de um scrapping na página: https://www.amazon.com.b
 
 ## II - Como fazer a execução do projeto:
 
-- Para que o projeto seja executado com sucesso, deve ser instalado as suas depedencias, elas são instaladas da seguinte forma: pip3 install
-- Agora para que o programa seja compilado deve ser utilizado o seguinte comando: python3 -m flask run
+- Para que o projeto seja executado com sucesso, deve ser instalado as suas depedencias, elas são instaladas da seguinte forma: 
+   pip3 install
+- Agora para que o programa seja compilado deve ser utilizado o seguinte comando: 
+   python3 -m flask run
 
 ## III - Endpoint
 
 - O único Endpoint é utilizado da seguinte forma:
-
    localhost5000/search/o_nome_do_produto_que_busca
