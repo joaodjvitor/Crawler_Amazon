@@ -13,7 +13,7 @@ def crawler(term = 'iphone'):
 
     scrapping_page('{url}{term}'.format(url=SEARCH_URL, term=term), products)
 
-    return json.dumps(products)
+    return products
 
 def scrapping_page(link, products):
     response = get_request(link, headers=headers_search())
@@ -23,7 +23,9 @@ def scrapping_page(link, products):
 
     for item in product_itens:
         title = item.select('h2 span.a-size-base-plus.a-color-base.a-text-normal')[0].text
+
         price = item.select('span.a-price-whole')
+
         price_cent = item.select('span.a-price-fraction')
 
         if len(price) > 0:
@@ -33,10 +35,12 @@ def scrapping_page(link, products):
 
         link = item.select('h2 a.a-link-normal.s-underline-text.s-underline-link-text.s-link-style.a-text-normal')[0]['href']
 
+        link_base = '{base_url}{link}'.format(base_url=BASE_URL, link=link)
+
         product = {
             'title':title, 
             'price':price,
-            'link':link
+            'link':link_base
         }
 
         products['products'].append(product)
