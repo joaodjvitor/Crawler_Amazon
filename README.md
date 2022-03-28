@@ -4,6 +4,7 @@ O projeto a seguir se trata de um scrapping na página: https://www.amazon.com.b
 
 ## I - Para obter os resultados do projeto foi utilizados as seguintes tecnologias:
 
+- Python 3
 - Beautiful soup 4
 - Requests
 - Flask
