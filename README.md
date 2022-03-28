@@ -24,4 +24,4 @@ O projeto a seguir se trata de um scrapping na página: https://www.amazon.com.b
 
 - O único Endpoint é utilizado da seguinte forma:
    
-   http://localhost:5000/search/produto
+   http://localhost:5000/search/<produto>
