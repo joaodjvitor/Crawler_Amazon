@@ -11,7 +11,10 @@ O projeto a seguir se trata de um scrapping na página: https://www.amazon.com.b
 
 ## II - Como fazer a execução do projeto:
 
-- 
+- Para instalar as dependencias deve  
 
-## III - Endpoints
+## III - Endpoint
 
+- O único Endpoint é utilizado da seguinte forma:
+
+  #localhost5000/search/o_nome_do_produto_que_busca
