@@ -13,7 +13,8 @@ O projeto a seguir se trata de um scrapping na página: https://www.amazon.com.b
 
 - Para que o projeto seja executado com sucesso, deve ser instalado as suas depedencias, elas são instaladas da seguinte forma: 
    
-   pip3 install
+   pip install -r requirements.txt
+   
 - Agora para que o programa seja compilado deve ser utilizado o seguinte comando: 
    
    python3 -m flask run
